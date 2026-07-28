@@ -178,7 +178,8 @@ def main(args):
         logger.info('Finished running')
     
     else:
-        logger.info("Not enough GPUs")
+        logger.info("Running on CPU")
+        run(0, 1, args)
 
 
 if __name__ == "__main__":
