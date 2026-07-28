@@ -57,7 +57,8 @@ def run(rank, world_size, args):
     output_file = os.path.join(infer_dir, f'prediction_results_{args.test_name}.jsonl')
 
     processor = AutoProcessor.from_pretrained(ori_processor_path)
-    model = model.to(torch.device(rank))
+    device = torch.device("cpu")
+    model = model.to(device)
     model = model.eval()
     
     error_count = 0
@@ -151,7 +152,7 @@ def run(rank, world_size, args):
     return [error_count, correct_count, pred_results]
 
 def main(args):
-    multiprocess = torch.cuda.device_count() >= 1
+    multiprocess = False
     mp.set_start_method('spawn')
     
     if multiprocess:
