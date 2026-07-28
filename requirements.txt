@@ -1,14 +1,15 @@
-torch>=2.4.0
-transformers>=4.51.0
-accelerate>=1.0.0
-qwen-vl-utils>=0.0.10
+torch
+torchvision
+torchaudio
+
+transformers==4.49.0
+accelerate
+
+qwen-vl-utils==0.0.14
 
 pillow
 tqdm
-numpy
-einops
 sentencepiece
-protobuf
 safetensors
-huggingface-hub
-tokenizers
+einops
+av
